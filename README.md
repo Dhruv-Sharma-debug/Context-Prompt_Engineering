@@ -104,12 +104,23 @@ Most organizations today operate between stages 1 and 2, creating significant te
 
 
 ---
+# The Future of Prompt Engineering
+As models continue to evolve, certain trends emerge clearly:
+
+**Multi-Agent Prompt Orchestration** - Complex applications increasingly involve multiple agents with specialized prompts. Coordinating prompts across agents while maintaining coherent conversations presents new challenges in prompt design and evaluation.
+
+**Automated Prompt Optimization** - Large language models themselves can be used to compose prompts for large language models through techniques like automatic prompt engineering, where one LLM beam searches over prompts for another LLM. These meta-prompting approaches may reduce manual prompt engineering effort.
+
+**Soft Prompting and Prefix Tuning** - In prefix-tuning, prompt tuning, or soft prompting, floating-point-valued vectors are searched directly by gradient descent to maximize log-likelihood on outputs. These techniques blur the line between prompting and fine-tuning.
+
+**Security Considerations** - Prompt injection is a cybersecurity exploit where adversaries craft inputs that appear legitimate but are designed to cause unintended behavior in machine learning models. As prompt engineering advances, defensive prompt engineering becomes equally critical.
+
+
+---
 ## Lecture
 
 We have published a 1 hour lecture that provides a comprehensive overview of prompting techniques, applications, and tools.
 - [Video Lecture](https://youtu.be/dOxUroR57xs)
 - [Notebook with code](https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/notebooks/pe-lecture.ipynb)
 - [Slides](https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/lecture/Prompt-Engineering-Lecture-Elvis.pdf)
-
-
 
