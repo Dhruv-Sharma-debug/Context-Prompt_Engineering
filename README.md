@@ -246,7 +246,4 @@ When a task exceeds the context window, use these three patterns:
 * **Tool Result Clearing:** Periodically remove old tool outputs from the message history to prevent "pollution."
 * **Hybrid Retrieval:** Use embeddings for speed, but allow the agent to perform autonomous searches for accuracy.
 
-## 🔗 Resources
-* [Anthropic Developer Console](https://console.anthropic.com/)
-* [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
-* [Anthropic Context Management Cookbook](https://github.com/anthropics/anthropic-cookbook)
+
