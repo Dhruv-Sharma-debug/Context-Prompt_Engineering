@@ -102,7 +102,82 @@ The extreme sensitivity of LLMs to prompt variations presents both a challenge a
 
 Most organizations today operate between stages 1 and 2, creating significant technical debt as AI applications scale. The gap between experimental prompting and production requirements widens as applications move from prototypes to customer-facing systems.
 
+---
 
+# The New Playbook for AI Prompting and Evaluation: From "Vibe Checks" to Context Engineering
+
+Welcome to the modern guide for building reliable AI applications. As we transition from simple chatbots to autonomous, multi-step AI agents, the focus has shifted from static prompt engineering to dynamic **Context Engineering** and rigorous **Automated Evaluation**.
+
+This document outlines the core strategies and metrics needed to manage Large Language Model (LLM) context and systematically measure output quality.
+
+---
+
+## Table of Contents
+1. [Part 1: The Shift to Context Engineering](#part-1-the-shift-to-context-engineering)
+2. [Part 2: Evaluating the Prompt](#part-2-evaluating-the-prompt)
+3. [The 6 Key Metrics of Evaluation](#the-6-key-metrics-of-evaluation)
+4. [The "LLM-as-a-Judge" Methodology](#the-llm-as-a-judge-methodology)
+5. [The Tooling Ecosystem](#the-tooling-ecosystem)
+
+---
+
+## Part 1: The Shift to Context Engineering
+
+LLMs possess a finite **"attention budget."** As you fill the context window with message history, external data, and tool outputs, models suffer from **Context Rot**—a degradation in their ability to recall specific, "needle-in-a-haystack" information. Context must be treated as a precious, finite resource.
+
+### Core Strategies
+
+* **System Prompt Calibration:** Find the "Goldilocks Zone." Avoid hardcoding brittle logic, but avoid being too vague. Use clear XML tags (like `<instructions>` and `<background>`) and start with a minimal set of rules, adding edge cases only when they fail.
+* **Just-in-Time (JIT) Context:** Instead of front-loading thousands of documents into a prompt, provide agents with tools to search and retrieve data *only when needed* (e.g., a file-reading tool). This progressive disclosure keeps the working memory clean.
+* **Long-Horizon Task Management:** For tasks that run for hours and exceed the context window, employ these patterns:
+    * **Compaction:** Have the model summarize the chat history and restart the session with just the summary.
+    * **Structured Notes:** Provide the agent a `NOTES.md` file to write down its progress and read it back later.
+    * **Sub-Agents:** Use a "Manager" agent to delegate deep-dive research to specialized "Worker" agents operating with fresh, empty context windows.
+
+---
+
+## Part 2: Evaluating the Prompt
+
+Relying on "vibe checks" (running a few prompts to see if the output looks okay) is no longer sufficient. Evaluating prompt effectiveness requires structured metrics, automated pipelines, and specialized tools.
+
+### The 6 Key Metrics of Evaluation
+
+Before scoring a prompt, define what a "good" response entails. Industry standards focus on these six dimensions:
+
+| Metric | Description |
+| :--- | :--- |
+| **Relevance** | How closely the output matches the user's actual intent (often measured via semantic similarity). |
+| **Accuracy** | The factual correctness of the output and the absence of hallucinations. |
+| **Consistency** | The model's ability to produce reliable, similar responses across multiple runs of the same prompt. |
+| **Efficiency** | The system-level cost, including latency (response time) and computational overhead (token usage). |
+| **Readability & Coherence** | The logical structure and human-readability of the output. |
+| **User Satisfaction** | Real-world feedback gathered from end-users (e.g., thumbs up/down ratings). |
+
+---
+
+### The "LLM-as-a-Judge" Methodology
+
+Manual evaluation is too slow for production. The modern standard is **LLM-as-a-Judge**, which uses a highly capable model (like Claude 3.5 Sonnet or GPT-4o) to evaluate outputs.
+
+**How it works:**
+1.  **Input:** Pass the target model's output into the Judge LLM.
+2.  **Criteria:** Provide the Judge with strict grading rules (e.g., "Score from 0-100 based on grammatical correctness and lack of hallucinations").
+3.  **Output:** The Judge returns a structured JSON file containing the scores, a justification for the grade, and recommendations for improving the original prompt.
+
+---
+
+### The Tooling Ecosystem
+
+The AI engineering stack now includes dedicated Prompt Ops and Evaluation tools to automate this lifecycle:
+
+* **Visual Test Suites (e.g., Anthropic Claude Console):** Upload datasets of inputs and expected outputs to run side-by-side against different prompt versions for instant visual feedback.
+* **Automated Workflows (e.g., AWS Bedrock Prompt Flows):** Visual node-based builders that pull test cases from databases, run them through evaluator models, and output scores. Ideal for CI/CD integration.
+* **Prompt Engineering Studios (e.g., Portkey):** Environments that automatically version prompts, enabling A/B testing in production and easy rollbacks if performance degrades.
+* **Evaluation Libraries (e.g., DSPy, Hugging Face):** Code-first frameworks that apply NLP metrics (like BLEU or ROUGE) and tune prompts based on data quality rather than trial-and-error.
+
+---
+
+*Building AI agents is a rigorous software engineering discipline. By actively managing the model's attention budget and continuously testing its outputs, developers can move AI from prototype to reliable, enterprise-grade production.*
 ---
 # The Future of Prompt Engineering
 As models continue to evolve, certain trends emerge clearly:
