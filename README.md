@@ -128,3 +128,50 @@ We have published a 1 hour lecture that provides a comprehensive overview of pro
 # Anthropic Prompt Guide
   - [Prompt engineering tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial.git)
 ---
+---
+# Effective Context Engineering for AI Agents
+
+A summary of strategies and mental models for managing LLM context, based on [Anthropic's engineering blog](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
+
+## 🚀 Overview
+As AI moves from simple chat to autonomous agents, the bottleneck has shifted from how we write prompts to how we manage the **Context Window**. Context engineering is the art of curating the smallest set of high-signal tokens to maximize model performance.
+
+## 🧠 Core Concept: The "Attention Budget"
+LLMs suffer from **Context Rot**. As the number of tokens increases, the model's ability to recall specific information (the "needle in a haystack") degrades. Context must be treated as a finite resource with diminishing marginal returns.
+
+
+---
+
+## 🛠 Key Strategies
+
+### 1. System Prompt Calibration
+* **The Goldilocks Zone:** Avoid "brittle" hardcoded logic (too specific) and "vague" guidance (too broad).
+* **Structure:** Use XML tags (e.g., `<instructions>`, `<background>`) to delineate sections.
+* **Minimalism:** Start with the smallest set of instructions and add complexity only when failure modes are identified.
+
+### 2. Tool Design & Retrieval
+* **Token Efficiency:** Tools should return concise, structured data rather than bloated objects.
+* **Just-in-Time (JIT) Context:** Instead of stuffing everything into the prompt upfront, give agents tools (like `grep` or `ls`) to fetch data only when needed.
+* **Progressive Disclosure:** Let the agent explore the environment layer-by-layer to keep the working memory clean.
+
+### 3. Handling Long-Horizon Tasks
+When a task exceeds the context window, use these three patterns:
+
+| Pattern | Description | Best Use Case |
+| :--- | :--- | :--- |
+| **Compaction** | Summarizing history and re-starting the session with a "distilled" state. | Multi-turn conversations. |
+| **Structured Notes** | The agent maintains a `NOTES.md` or memory file to track progress. | Iterative dev/Research. |
+| **Sub-Agents** | Using a "Manager" agent to coordinate specialized "Worker" agents. | Complex, parallel tasks. |
+
+
+---
+
+## 💡 Best Practices
+* **Canonical Examples:** Use a few high-quality, diverse examples (few-shot) rather than an exhaustive list of every edge case.
+* **Tool Result Clearing:** Periodically remove old tool outputs from the message history to prevent "pollution."
+* **Hybrid Retrieval:** Use embeddings for speed, but allow the agent to perform autonomous searches for accuracy.
+
+## 🔗 Resources
+* [Anthropic Developer Console](https://console.anthropic.com/)
+* [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
+* [Anthropic Context Management Cookbook](https://github.com/anthropics/anthropic-cookbook)
