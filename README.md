@@ -83,7 +83,29 @@ You can also find the most up-to-date guides on our new website [https://www.pro
 - [Prompt Engineering - Notebooks](https://www.promptingguide.ai/notebooks)
 - [Prompt Engineering - Datasets](https://www.promptingguide.ai/datasets)
 - [Prompt Engineering - Additional Readings](https://www.promptingguide.ai/readings)
+---
+# 🤖 Demystifying ReAct: Giving AI an Internal Monologue
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)
+
+## 📖 What is it?
+Have you ever wondered how advanced AI agents can fetch live weather data, calculate complex math, or search the web instead of just predicting the next word? 
+
+Enter **ReAct (Reasoning and Acting)**. 
+
+It is a powerful prompting framework that forces a Large Language Model (LLM) to stop guessing and start thinking out loud. By teaching the AI to break down a problem into a step-by-step internal monologue and giving it the "hands" to use external tools, the ReAct pattern transforms a standard chatbot into a dynamic, autonomous problem-solver.
+
+---
+
+## ⚙️ How the ReAct Loop Works
+
+The core of this framework relies on a continuous, iterative cycle:
+
+* **🧠 The Thought:** Before doing anything, the AI must explicitly write out its logic (e.g., *"To find the exchange rate, I first need to use the currency tool."*). This prevents hallucinations and keeps the model on track.
+* **🛠️ The Action:** The AI decides to "act" by selecting a specific tool from a predefined list (like a calculator, web scraper, or database query) and provides the exact inputs needed to run it.
+* **👀 The Observation:** The AI pauses its generation while your actual code runs the tool in the real world. The real-world result is then fed back into the AI as an "Observation."
+* **🔄 The Loop:** The AI reads the observation and triggers a new Thought. It repeats this Think-Act-Observe cycle until it has gathered enough information to deliver a final, accurate answer.
 ---
 # The Prompt Sensitivity Problem
 The extreme sensitivity of LLMs to prompt variations presents both a challenge and an opportunity. Linguistic features significantly influence prompt effectiveness (such as morphology, syntax, and lexico-semantic changes) which meaningfully enhance task performance across a variety of tasks.
