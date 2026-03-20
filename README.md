@@ -268,4 +268,6 @@ When a task exceeds the context window, use these three patterns:
 * **Tool Result Clearing:** Periodically remove old tool outputs from the message history to prevent "pollution."
 * **Hybrid Retrieval:** Use embeddings for speed, but allow the agent to perform autonomous searches for accuracy.
 
-
+---
+# Context - Engineering best guide 
+[davidkimai-Context-Engineering](https://github.com/davidkimai/Context-Engineering/tree/main)
