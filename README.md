@@ -23,7 +23,7 @@ Motivated by the high interest in developing with LLMs, we have created this new
 
   
 # few prompting technique
-## prompt chaining:
+## Self consistency Prompting:
 Think of it like asking a group of three different mathematicians to solve the same tricky puzzle. Instead of just trusting the first person's answer, you let all three work it out in their own way, and then you go with the answer that the majority agrees on.
 
 **Short Example**
@@ -39,79 +39,68 @@ Instead of just giving one quick answer, a self-consistency setup generates thre
 
 **The Final Result**: The system looks at the answers (1426, 1427, 1426) and takes a majority vote. Since 1426 appeared most often, it filters out the mistake and gives you the correct final answer.This step is called **Aggregation**.
 
+## Chain of Thought (CoT) Prompting
+Think of it like a student solving a multi-step word problem on an exam and being told to "show your work." Instead of jumping straight to a final guess, the AI writes out its step-by-step reasoning process. This slower, sequential thinking helps it avoid careless logical leaps.
 
-## Guides
-You can also find the most up-to-date guides on our new website [https://www.promptingguide.ai/](https://www.promptingguide.ai/).
+**Short Example**
+*Prompt:* "A cafeteria has 23 apples. If they use 20 to make lunch and buy 6 more, how many apples do they have?"
 
-- [Prompt Engineering - Introduction](https://www.promptingguide.ai/introduction)
-  - [Prompt Engineering - LLM Settings](https://www.promptingguide.ai/introduction/settings)
-  - [Prompt Engineering - Basics of Prompting](https://www.promptingguide.ai/introduction/basics)
-  - [Prompt Engineering - Prompt Elements](https://www.promptingguide.ai/introduction/elements)
-  - [Prompt Engineering - General Tips for Designing Prompts](https://www.promptingguide.ai/introduction/tips)
-  - [Prompt Engineering - Examples of Prompts](https://www.promptingguide.ai/introduction/examples)
-- [Prompt Engineering - Techniques](https://www.promptingguide.ai/techniques)
-  - [Prompt Engineering - Zero-Shot Prompting](https://www.promptingguide.ai/techniques/zeroshot)
-  - [Prompt Engineering - Few-Shot Prompting](https://www.promptingguide.ai/techniques/fewshot)
-  - [Prompt Engineering - Chain-of-Thought Prompting](https://www.promptingguide.ai/techniques/cot)
-  - [Prompt Engineering - Self-Consistency](https://www.promptingguide.ai/techniques/consistency)
-  - [Prompt Engineering - Generate Knowledge Prompting](https://www.promptingguide.ai/techniques/knowledge)
-  - [Prompt Engineering - Prompt Chaining](https://www.promptingguide.ai/techniques/prompt_chaining)
-  - [Prompt Engineering - Tree of Thoughts (ToT)](https://www.promptingguide.ai/techniques/tot)
-  - [Prompt Engineering - Retrieval Augmented Generation](https://www.promptingguide.ai/techniques/rag)
-  - [Prompt Engineering - Automatic Reasoning and Tool-use (ART)](https://www.promptingguide.ai/techniques/art)
-  - [Prompt Engineering - Automatic Prompt Engineer](https://www.promptingguide.ai/techniques/ape)
-  - [Prompt Engineering - Active-Prompt](https://www.promptingguide.ai/techniques/activeprompt)
-  - [Prompt Engineering - Directional Stimulus Prompting](https://www.promptingguide.ai/techniques/dsp)
-  - [Prompt Engineering - Program-Aided Language Models](https://www.promptingguide.ai/techniques/pal)
-  - [Prompt Engineering - ReAct Prompting](https://www.promptingguide.ai/techniques/react)
-  - [Prompt Engineering - Multimodal CoT Prompting](https://www.promptingguide.ai/techniques/multimodalcot)
-  - [Prompt Engineering - Graph Prompting](https://www.promptingguide.ai/techniques/graph)
-- [Prompt Engineering - Applications](https://www.promptingguide.ai/applications)
-  - [Prompt Engineering - Function Calling](https://www.promptingguide.ai/applications/function_calling)
-  - [Prompt Engineering - Generating Data](https://www.promptingguide.ai/applications/generating)
-  - [Prompt Engineering - Generating Synthetic Dataset for RAG](https://www.promptingguide.ai/applications/synthetic_rag)
-  - [Prompt Engineering - Takling Generated Datasets Diversity](https://www.promptingguide.ai/applications/generating_textbooks)
-  - [Prompt Engineering - Generating Code](https://www.promptingguide.ai/applications/coding)
-  - [Prompt Engineering - Graduate Job Classification Case Study](https://www.promptingguide.ai/applications/workplace_casestudy)
-- [Prompt Engineering - Prompt Hub](https://www.promptingguide.ai/prompts)
-  - [Prompt Engineering - Classification](https://www.promptingguide.ai/prompts/classification)
-  - [Prompt Engineering - Coding](https://www.promptingguide.ai/prompts/coding)
-  - [Prompt Engineering - Creativity](https://www.promptingguide.ai/prompts/creativity)
-  - [Prompt Engineering - Evaluation](https://www.promptingguide.ai/prompts/evaluation)
-  - [Prompt Engineering - Information Extraction](https://www.promptingguide.ai/prompts/information-extraction)
-  - [Prompt Engineering - Image Generation](https://www.promptingguide.ai/prompts/image-generation)
-  - [Prompt Engineering - Mathematics](https://www.promptingguide.ai/prompts/mathematics)
-  - [Prompt Engineering - Question Answering](https://www.promptingguide.ai/prompts/question-answering)
-  - [Prompt Engineering - Reasoning](https://www.promptingguide.ai/prompts/reasoning)
-  - [Prompt Engineering - Text Summarization](https://www.promptingguide.ai/prompts/text-summarization)
-  - [Prompt Engineering - Truthfulness](https://www.promptingguide.ai/prompts/truthfulness)
-  - [Prompt Engineering - Adversarial Prompting](https://www.promptingguide.ai/prompts/adversarial-prompting)
-- [Prompt Engineering - Models](https://www.promptingguide.ai/models)
-  - [Prompt Engineering - ChatGPT](https://www.promptingguide.ai/models/chatgpt)
-  - [Prompt Engineering - Code Llama](https://www.promptingguide.ai/models/code-llama)
-  - [Prompt Engineering - Flan](https://www.promptingguide.ai/models/flan)
-  - [Prompt Engineering - Gemini](https://www.promptingguide.ai/models/gemini)
-  - [Prompt Engineering - GPT-4](https://www.promptingguide.ai/models/gpt-4)
-  - [Prompt Engineering - LLaMA](https://www.promptingguide.ai/models/llama)
-  - [Prompt Engineering - Mistral 7B](https://www.promptingguide.ai/models/mistral-7b)
-  - [Prompt Engineering - Mixtral](https://www.promptingguide.ai/models/mixtral)
-  - [Prompt Engineering - OLMo](https://www.promptingguide.ai/models/olmo)
-  - [Prompt Engineering - Phi-2](https://www.promptingguide.ai/models/phi-2)
-  - [Prompt Engineering - Model Collection](https://www.promptingguide.ai/models/collection)
-- [Prompt Engineering - Risks and Misuses](https://www.promptingguide.ai/risks)
-  - [Prompt Engineering - Adversarial Prompting](https://www.promptingguide.ai/risks/adversarial)
-  - [Prompt Engineering - Factuality](https://www.promptingguide.ai/risks/factuality)
-  - [Prompt Engineering - Biases](https://www.promptingguide.ai/risks/biases)
-- [Prompt Engineering - Papers](https://www.promptingguide.ai/papers)
-  - [Prompt Engineering - Overviews](https://www.promptingguide.ai/papers#overviews)
-  - [Prompt Engineering - Approaches](https://www.promptingguide.ai/papers#approaches)
-  - [Prompt Engineering - Applications](https://www.promptingguide.ai/papers#applications)
-  - [Prompt Engineering - Collections](https://www.promptingguide.ai/papers#collections)
-- [Prompt Engineering - Tools](https://www.promptingguide.ai/tools)
-- [Prompt Engineering - Notebooks](https://www.promptingguide.ai/notebooks)
-- [Prompt Engineering - Datasets](https://www.promptingguide.ai/datasets)
-- [Prompt Engineering - Additional Readings](https://www.promptingguide.ai/readings)
+Instead of immediately outputting a number, a CoT-enabled AI processes the logic sequentially:
+- **Step 1:** The cafeteria started with 23 apples.
+- **Step 2:** They used 20 for lunch, so they have $23 - 20 = 3$ apples left.
+- **Step 3:** They bought 6 more apples, so they now have $3 + 6 = 9$ apples.
+
+**The Final Result:** "The cafeteria has 9 apples."
+
 ---
+
+## Tree of Thoughts (ToT) Prompting
+Think of it like an expert chess player evaluating multiple potential moves ahead. Instead of following a single line of thought (like CoT), the AI generates multiple different paths (branches), evaluates how promising each branch looks, and backtracks if it hits a dead end to try a better route.
+
+**Short Example**
+*Goal:* Solve a complex riddle or design a marketing strategy under strict constraints.
+
+A ToT framework breaks the problem down into thoughts and explores them like a tree:
+- **Root Problem:** Design a sustainable, low-budget packaging solution for a beverage.
+    - **Thought Branch A (Plastic alternative):** Use biodegradable bioplastics.
+        - *Evaluation:* Too expensive for a tight budget. (**Pruned/Abandoned branch**)
+    - **Thought Branch B (Paper-based):** Use recycled cardboard with a plant-based waterproof lining.
+        - *Evaluation:* Fits budget and sustainability goals. (**Selected for next step**)
+        - **Sub-Branch B1:** Source locally to minimize carbon footprint.
+
+**The Final Result:** The system systematically discards unviable ideas early and builds only on the highest-scoring logical paths to reach an optimal strategy.
+
+---
+
+## Prompt Chaining
+Think of it like an assembly line in a factory. Instead of asking one worker to build an entire car from scratch, you break the massive task into a series of smaller, specialized steps. The output of the first prompt is automatically fed as the input into the next prompt.
+
+**Short Example**
+*Goal:* Read a raw customer feedback transcript, extract the core issue, and draft a response.
+
+- **Prompt 1 (Extraction):** "Read this transcript and list the main technical complaint in one sentence."
+  - *Output 1:* "The user's application crashes every time they click the export button."
+- **Prompt 2 (Classification):** "Based on this issue: '[Output 1]', classify the urgency as Low, Medium, or High."
+  - *Output 2:* "High"
+- **Prompt 3 (Action):** "Since the urgency is [Output 2] and the issue is [Output 1], draft a polite, high-priority email apology offering a troubleshooting meeting."
+
+**The Final Result:** A highly precise, context-aware customer service email generated without confusing the model with too many instructions at once.
+
+---
+
+## Meta-Prompting
+Think of it like hiring a professional manager or consultant whose job is to write the perfect instruction manual for your workers. Instead of writing a prompt yourself, you write a high-level prompt that instructs the AI to design, optimize, or select the best possible prompt for a specific task. It is "prompting the AI to prompt itself."
+
+**Short Example**
+*Prompt:* "Act as an expert prompt engineer. I want to build a tool that helps users learn conversational Spanish. Write a highly structured system prompt that sets the perfect persona, sets clear rules for correcting grammar, and includes behavioral guardrails."
+
+The AI processes this meta-instruction and generates a completely new, optimized prompt:
+- *AI Generated Prompt:* `"You are a patient, encouraging Spanish tutor. Follow these steps: 1. Respond to the user in basic Spanish. 2. If they make a grammatical error, wrap the correction in brackets... [etc.]"`
+
+**The Final Result:** You receive a robust, production-ready prompt engineered by the AI itself, saving you from trial-and-error manual tweaking.
+
+
+
 # 🤖 Demystifying ReAct: Giving AI an Internal Monologue
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
