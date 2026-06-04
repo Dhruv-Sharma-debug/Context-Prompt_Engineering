@@ -215,24 +215,6 @@ The core of this framework relies on a continuous, iterative cycle:
 * **👀 The Observation:** The AI pauses its generation while your actual code runs the tool in the real world. The real-world result is then fed back into the AI as an "Observation."
 * **🔄 The Loop:** The AI reads the observation and triggers a new Thought. It repeats this Think-Act-Observe cycle until it has gathered enough information to deliver a final, accurate answer.
 ---
-# The Prompt Sensitivity Problem
-The extreme sensitivity of LLMs to prompt variations presents both a challenge and an opportunity. Linguistic features significantly influence prompt effectiveness (such as morphology, syntax, and lexico-semantic changes) which meaningfully enhance task performance across a variety of tasks.
-
-## This sensitivity creates what we call the prompt engineering maturity model, where organizations progress through distinct stages:
-
-- **Stage 1**: Ad-hoc Experimentation - Individual developers craft prompts through trial and error, with limited documentation or version control. Success depends heavily on individual expertise and institutional knowledge remains siloed.
-
-- **Stage 2**: Template Standardization - Teams develop prompt templates for common use cases, establishing basic version control. However, prompt quality measurement remains largely subjective.
-
-- **Stage 3**: Systematic Evaluation - Organizations implement quantitative evaluation frameworks, enabling data-driven prompt optimization. LLM evaluation becomes integrated into development workflows.
-
-- **Stage 4**: Production Observability - Teams monitor prompt performance in production, using real-world data to identify regressions and optimization opportunities. AI observability closes the feedback loop between development and deployment.
-
-- **Stage 5**: Continuous Optimization - Organizations establish closed-loop systems where production data informs prompt improvements, which are systematically evaluated and deployed. Prompt management becomes a core competency.
-
-Most organizations today operate between stages 1 and 2, creating significant technical debt as AI applications scale. The gap between experimental prompting and production requirements widens as applications move from prototypes to customer-facing systems.
-
----
 
 
 # Anthropic Prompt Guide
@@ -243,12 +225,19 @@ Most organizations today operate between stages 1 and 2, creating significant te
 
 A summary of strategies and mental models for managing LLM context, based on [Anthropic's engineering blog](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
 
+## Part of context
+- Chat History
+- Examples
+- Memory
+- Tool calls and respective output (pulling external context)
+- Environment and external data
+- System Prompts
+
 ## 🚀 Overview
 As AI moves from simple chat to autonomous agents, the bottleneck has shifted from how we write prompts to how we manage the **Context Window**. Context engineering is the art of curating the smallest set of high-signal tokens to maximize model performance.
 
 ## 🧠 Core Concept: The "Attention Budget"
 LLMs suffer from **Context Rot**. As the number of tokens increases, the model's ability to recall specific information (the "needle in a haystack") degrades. Context must be treated as a finite resource with diminishing marginal returns.
-
 
 ---
 
