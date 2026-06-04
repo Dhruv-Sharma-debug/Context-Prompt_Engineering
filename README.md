@@ -9,7 +9,7 @@ Motivated by the high interest in developing with LLMs, we have created this new
 🌐 [Prompt Engineering Guide (Web Version)](https://www.promptingguide.ai/)
 
 
-# Prompt Engineering Guide
+# Part of Prompt
 - Task
 - Role
 - Persona and Tone
