@@ -13,14 +13,30 @@ Motivated by the high interest in developing with LLMs, we have created this new
 - Task
 - Role
 - Persona and Tone
-- Instruction(Think step by step,give multiple optinion,tree of thought etc)
-- Context(very important)
-- References(0 shot,1 shot,few shot)
+- Instruction (Think step by step, give multiple optinion, tree of thought etc)
+- Context (very important)
+- References (0 shot, 1 shot, few shot)
 - Tools
 - Constraints and Rules
 - Output Format
 - attachments or input data
 
+  
+# few prompting technique
+## prompt chaining:Think of it like asking a group of three different mathematicians to solve the same tricky puzzle. Instead of just trusting the first person's answer, you let all three work it out in their own way, and then you go with the answer that the majority agrees on.
+
+**Short Example**
+If you ask an AI a math question like: "What is 587 + 839?"
+
+Instead of just giving one quick answer, a self-consistency setup generates three separate responses:
+
+- Path 1: "587 + 839 = 1426"
+
+- Path 2: "Let's add 500 and 800 to get 1300, then add the rest... the total is 1427" (a slight calculation error)
+
+- Path 3: "Adding 587 to 839 gives 1426"
+
+**The Final Result**: The system looks at the answers (1426, 1427, 1426) and takes a majority vote. Since 1426 appeared most often, it filters out the mistake and gives you the correct final answer.
 
 
 ## Guides
