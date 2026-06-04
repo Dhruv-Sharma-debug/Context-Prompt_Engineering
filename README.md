@@ -9,6 +9,17 @@ Motivated by the high interest in developing with LLMs, we have created this new
 🌐 [Prompt Engineering Guide (Web Version)](https://www.promptingguide.ai/)
 
 
+# Prompt Engineering Guide
+- Task
+- Role
+- Persona and Tone
+- Instruction(Think step by step,give multiple optinion,tree of thought etc)
+- Context(very important)
+- References(0 shot,1 shot,few shot)
+- Tools
+- Constraints and Rules
+- Output Format
+- attachments or input data
 
 
 
