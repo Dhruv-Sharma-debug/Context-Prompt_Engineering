@@ -38,6 +38,7 @@ Instead of just giving one quick answer, a self-consistency setup generates thre
 - Path 3: "Adding 587 to 839 gives 1426"
 
 **The Final Result**: The system looks at the answers (1426, 1427, 1426) and takes a majority vote. Since 1426 appeared most often, it filters out the mistake and gives you the correct final answer.This step is called **Aggregation**.
+
 **Actual Prompt Example**
 To use self-consistency, you provide a few examples showing step-by-step reasoning (few-shot) and then ask your target question. In production, you run this same prompt 3 to 5 times (or set the model's `n` parameter > 1) and look for the most common final answer.
 
