@@ -225,10 +225,9 @@ The core of this framework relies on a continuous, iterative cycle:
 
 A summary of strategies and mental models for managing LLM context, based on [Anthropic's engineering blog](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
 
-## Part of context
+## Part of context (Memory)
 - Chat History
 - Examples
-- Memory
 - Tool calls and respective output (pulling external context)
 - Environment and external data
 - System Prompts
