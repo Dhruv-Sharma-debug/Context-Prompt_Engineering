@@ -229,8 +229,10 @@ A summary of strategies and mental models for managing LLM context, based on [An
 - Chat History
 - Examples
 - Tool calls and respective output (pulling external context)
+- Retrieved Data
 - Environment and external data
-- System Prompts
+- System Prompts and Model Behaviour
+  
 
 ## 🚀 Overview
 As AI moves from simple chat to autonomous agents, the bottleneck has shifted from how we write prompts to how we manage the **Context Window**. Context engineering is the art of curating the smallest set of high-signal tokens to maximize model performance.
